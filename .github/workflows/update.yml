@@ -1,0 +1,40 @@
+name: Update revisions
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "45 */6 * * *"
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    container:
+      image: "registry.fedoraproject.org/fedora-minimal:latest"
+
+    steps:
+      - name: Prepare
+        run: |
+          microdnf -y install --nodocs --setopt=install_weak_deps=0 \
+            make git-core rpm-build curl perl-interpreter jq rpmdevtools copr-cli parallel libxml2
+
+      - name: Copr config
+        env:
+          COPR_CONF: ${{ secrets.COPR_CONFIG }}
+        run: |
+          mkdir -p ~/.config
+          echo "$COPR_CONF" > ~/.config/copr
+
+      - uses: actions/checkout@v3
+
+      - name: Run updater
+        env:
+          GOTIFY_URL: ${{ secrets.GOTIFY_URL }}
+          GOTIFY_APP_TOKEN: ${{ secrets.GOTIFY_APP_TOKEN }}
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          # From https://api.github.com/users/github-actions%5Bbot%5D
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          find -name "update.sh" -execdir {} \;

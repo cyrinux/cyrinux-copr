@@ -1,0 +1,37 @@
+name: Build Misc
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "hyprland-git/**"
+      - ".copr/**"
+      - ".github/**"
+
+jobs:
+  main:
+    if: |
+      github.event_name == 'workflow_dispatch' ||
+      contains(github.event.head_commit.message, '[build-all]')
+    runs-on: ubuntu-latest
+    container:
+      image: "registry.fedoraproject.org/fedora-minimal:latest"
+    env:
+      chroots: -r fedora-rawhide-x86_64 -r fedora-rawhide-aarch64 -r fedora-39-x86_64 -r fedora-39-aarch64
+    steps:
+      - name: Prepare
+        run: |
+          microdnf -y install --nodocs --setopt=install_weak_deps=0 \
+             copr-cli parallel
+
+      - name: Copr config
+        env:
+          COPR_CONF: ${{ secrets.COPR_CONFIG }}
+        run: |
+          mkdir -p ~/.config
+          echo "$COPR_CONF" > ~/.config/copr
+
+      - name: Build all
+        if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[build-all]')
+        run: |
+          parallel copr-cli build-package cyrinux/misc $chroots --nowait --name ::: {hyprland-autoname-workspaces,magic-wormhole,SwayAudioIdleInhibit}

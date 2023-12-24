@@ -1,0 +1,6 @@
+*.rpm
+*.zip
+*.tar.*
+*.log
+*.service
+temp
