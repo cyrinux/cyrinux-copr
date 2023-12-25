@@ -55,6 +55,9 @@ BuildRequires: pulseaudio-libs-devel
 %{_bindir}/wldash
 
 %changelog
+* Mon Dec 25 2023 Cyril Levis <git@levis.name> 0.3.0-1
+- new package built with tito
+
 * Mon Dec 25 2023 Cyril Levis <git@levis.name>
 -  Init wldash
 
