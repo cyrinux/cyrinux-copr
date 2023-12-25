@@ -27,7 +27,7 @@ URL:            %{gourl}
 Source0:         %{gosource}
 Source1:        https://raw.githubusercontent.com/maximbaz/%{goname}/%{version}/%{goname}.service
 Source2:        https://raw.githubusercontent.com/maximbaz/%{goname}/%{version}/%{goname}.socket
-Source3:        https://raw.githubusercontent.com/maximbaz/%{goname}/%{version}/service.conf.example
+Source3:        https://raw.githubusercontent.com/maximbaz/%{goname}/main/service.conf.example
 
 BuildRequires: systemd-rpm-macros
 BuildRequires: systemd-devel

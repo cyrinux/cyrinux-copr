@@ -78,6 +78,10 @@ install -m 0755 -vp %{gobuilddir}/bin/* %{buildroot}%{_bindir}/
 %gopkgfiles
 
 %changelog
+* Mon Dec 25 2023 Cyril Levis <git@levis.name>
+- Automatic commit of package [goimapnotify] release [2.3.9-1].
+  (git@levis.name)
+
 * Mon Dec 25 2023 Cyril Levis <git@levis.name> 2.3.9-1
 - new package built with tito
 
