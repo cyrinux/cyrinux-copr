@@ -29,12 +29,18 @@ IDLE, golang version.}
 %global godocs          CHANGELOG.rst README.md
 
 Name:           %{goname}
-Release:        %autorelease
+Release:        2%{?dist}
 Summary:        Execute scripts on IMAP mailbox changes (new/deleted/updated messages) using IDLE, golang version
 
 License:        GPL-3.0-only
 URL:            %{gourl}
-Source:         %{gosource}
+Source0:        %{gosource}
+Source1:        https://gitlab.com/shackra/%{goname}/-/raw/%{version}/%{goname}@.service
+
+BuildRequires: systemd-rpm-macros
+BuildRequires: systemd-devel
+BuildRequires: systemd
+%{?systemd_requires}
 
 %description %{common_description}
 
@@ -51,6 +57,9 @@ Source:         %{gosource}
 %gobuild -o %{gobuilddir}/bin/goimapnotify %{goipath}
 
 %install
+install -dm 0755 -v %{buildroot}/%{_userunitdir}/
+install -Dm 0644 -v -t %{buildroot}/%{_userunitdir}/ %{_sourcedir}/%{goname}@.service
+
 %gopkginstall
 install -m 0755 -vd                     %{buildroot}%{_bindir}
 install -m 0755 -vp %{gobuilddir}/bin/* %{buildroot}%{_bindir}/
@@ -64,8 +73,12 @@ install -m 0755 -vp %{gobuilddir}/bin/* %{buildroot}%{_bindir}/
 %license LICENSE
 %doc CHANGELOG.rst README.md
 %{_bindir}/*
+%{_userunitdir}/%{goname}@.service
 
 %gopkgfiles
 
 %changelog
+* Mon Dec 25 2023 Cyril Levis <git@levis.name> 2.3.9-1
+- new package built with tito
+
 %autochangelog
