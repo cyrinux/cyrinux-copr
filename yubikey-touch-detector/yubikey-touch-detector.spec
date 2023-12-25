@@ -80,13 +80,4 @@ install -Dm 0755 -v %{gobuilddir}/bin/* %{buildroot}%{_bindir}/
 %gopkgfiles
 
 %changelog
-* Mon Dec 25 2023 Cyril Levis <git@levis.name> 1.10.1-3
-- add systemd config
-
-* Mon Dec 25 2023 Cyril Levis <git@levis.name> 1.10.1-2
-- fix systemd unit
-
-* Mon Dec 25 2023 Cyril Levis <git@levis.name> 1.10.1-1
-- new package built with tito
-
 %autochangelog

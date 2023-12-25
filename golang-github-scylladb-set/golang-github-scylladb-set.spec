@@ -37,7 +37,4 @@ Source:         %{gosource}
 %gopkgfiles
 
 %changelog
-* Mon Dec 25 2023 Cyril Levis <git@levis.name> 1.0.2-1
-- new package built with tito
-
 %autochangelog

@@ -14,7 +14,7 @@ Summary:        Push to talk application is working with both wayland/x11 and pu
 License:        ISC
 URL:            https://crates.io/crates/push2talk
 Source:         %{crates_source}
-Source:         https://levis.name/push2talk-1.2.5-vendor.tar.xz
+Source:         https://levis.name/packaging/push2talk-1.2.5-vendor.tar.xz
 
 BuildRequires:  cargo-rpm-macros >= 25
 
