@@ -5,7 +5,7 @@ This repo contains various package I need.
 # Help for me
 
 ```
-$ sudo dnf install tito mock copr-cli -y
+$ sudo dnf install tito mock copr-cli go2rpm rust2rpm -y
 $ alias mockbuild='\
         rpmlint *.spec &&
         spectool -g *.spec &&
