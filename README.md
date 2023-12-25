@@ -1,6 +1,9 @@
 [![Copr build status](https://copr.fedorainfracloud.org/coprs/cyrinux/misc/package/wldash/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/cyrinux/misc/package/wldash/)
 
-This repo contains various package I need.
+This copr repo contains various packages.
+
+Copr repository maintain by @cyrinux and @maximbaz https://copr.fedorainfracloud.org/coprs/cyrinux/.
+
 
 # Help for me
 
