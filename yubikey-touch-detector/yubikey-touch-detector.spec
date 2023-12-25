@@ -19,7 +19,7 @@ or display a visual indicator on the screen).}
 
 Name:           %{goname}
 # Release:      %autorelease
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        A tool to detect when your YubiKey is waiting for a touch (to send notification or display a visual indicator on the screen)
 
 License:        ISC
@@ -80,6 +80,9 @@ install -Dm 0755 -v %{gobuilddir}/bin/* %{buildroot}%{_bindir}/
 %gopkgfiles
 
 %changelog
+* Mon Dec 25 2023 Cyril Levis <git@levis.name> 1.10.1-3
+- add systemd config
+
 * Mon Dec 25 2023 Cyril Levis <git@levis.name> 1.10.1-2
 - fix systemd unit
 
