@@ -2,8 +2,8 @@
 %global debug_package %{nil}
 
 Name:           browserpass-native
-Version:        3.1.0
-Release:        2%{?dist}
+Version:        3.1.1
+Release:        1%{?dist}
 Summary:        Native application for the browserpass browser extension
 License:        ISC
 URL:            https://github.com/browserpass/browserpass-native
@@ -42,6 +42,7 @@ rm -rf %{buildroot}/usr/share/{doc,licenses}
 %{_prefix}/lib/browserpass
 
 %changelog
+
 * Tue Dec 26 2023 Cyril Levis <git@levis.name> 3.1.0-2
 - Automatic commit of package [browserpass-native] release [3.1.0-1].
   (git@levis.name)
