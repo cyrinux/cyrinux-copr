@@ -3,7 +3,7 @@
 
 # https://github.com/x-motemen/ghq
 %global goipath         github.com/x-motemen/ghq
-Version:                1.4.4
+Version:                1.4.2
 
 BuildRequires: git
 Requires: git
@@ -58,10 +58,4 @@ install -m 0755 -vp %{gobuilddir}/bin/* %{buildroot}%{_bindir}/
 %gopkgfiles
 
 %changelog
-* Tue Dec 26 2023 Cyril Levis <git@levis.name> 1.4.4-1
-- new package built with tito
-
-* Tue Dec 26 2023 Cyril Levis <git@levis.name> 1.4.3-1
-- new package built with tito
-
 %autochangelog
