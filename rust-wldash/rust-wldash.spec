@@ -8,7 +8,7 @@
 
 Name:           wldash
 Version:        0.3.0
-Release:        2%{?dist}
+Release:        %autorelease
 Summary:        A very good tiny wayland launcher.
 
 SourceLicense:  None
@@ -19,8 +19,8 @@ Source0: https://git.sr.ht/~kennylevinsen/%{crate}/archive/%{commitId}.tar.gz
 Source1: https://levis.name/packaging/%{crate}-%{version}-vendor.tar.xz
 Patch: https://levis.name/packaging/0000-cargo.toml.patch
 
-BuildRequires: git
 BuildRequires: cargo-rpm-macros >= 25
+BuildRequires: git
 BuildRequires: alsa-lib-devel
 BuildRequires: fontconfig-devel
 BuildRequires: dbus-devel
@@ -55,16 +55,4 @@ BuildRequires: pulseaudio-libs-devel
 %{_bindir}/wldash
 
 %changelog
-* Mon Dec 25 2023 Cyril Levis <git@levis.name> 0.3.0-2
-- Automatic commit of package [wldash] release [0.3.0-1]. (git@levis.name)
-
-* Mon Dec 25 2023 Cyril Levis <git@levis.name>
-- Automatic commit of package [wldash] release [0.3.0-1]. (git@levis.name)
-
-* Mon Dec 25 2023 Cyril Levis <git@levis.name> 0.3.0-1
-- new package built with tito
-
-* Mon Dec 25 2023 Cyril Levis <git@levis.name>
--  Init wldash
-
 %autochangelog
