@@ -29,8 +29,8 @@ Requires: NetworkManager
 %defattr(-,root,root,-)
 %{_bindir}/%{name}
 %{_bindir}/ttoggle
-%{_sysconfdir}/NetworkManager/dispatcher.d/10trust
 %dir %{_sysconfdir}/%{name}
+%{_sysconfdir}/NetworkManager/dispatcher.d/10trust
 %doc README.md
 
 
