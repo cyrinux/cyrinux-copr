@@ -17,8 +17,11 @@ Requires: NetworkManager
 
 
 %install
-%{__install} -m 0755 -vd                     %{buildroot}%{_sysconfdir}/%{name}
-%{__install} -m 0755 -vd                     %{buildroot}%{_bindir}
+%{__install} -m 0755 -vd %{buildroot}%{_sysconfdir}/%{name}
+touch  %{buildroot}%{_sysconfdir}/%{name}/excluded_networks
+touch  %{buildroot}%{_sysconfdir}/%{name}/trusted_units
+touch  %{buildroot}%{_sysconfdir}/%{name}/trusted_networks
+%{__install} -m 0755 -vd %{buildroot}%{_bindir}
 %{__install} -m 0755 -vp %{name} %{buildroot}%{_bindir}/
 %{__install} -m 0755 -vp ttoggle %{buildroot}%{_bindir}/
 %{__install} -m 0755 -vd                     %{buildroot}%{_sysconfdir}/NetworkManager/dispatcher.d/
@@ -29,8 +32,8 @@ Requires: NetworkManager
 %defattr(-,root,root,-)
 %{_bindir}/%{name}
 %{_bindir}/ttoggle
-%dir %{_sysconfdir}/%{name}
 %{_sysconfdir}/NetworkManager/dispatcher.d/10trust
+%config %{_sysconfdir}/%{name}/*
 %doc README.md
 
 
