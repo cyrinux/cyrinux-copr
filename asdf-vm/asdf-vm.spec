@@ -1,6 +1,6 @@
 Name:           asdf-vm
 Version:        0.13.1
-Release:        1%{?dist}
+Release:        %autorelease
 Summary: "Extendable version manager with support for Ruby, Node.js, Elixir, Erlang & more"
 
 License:        MIT
@@ -13,6 +13,7 @@ Requires: curl git
 
 %prep
 %autosetup -n asdf-%{version}
+
 
 %install
 %global dst $RPM_BUILD_ROOT/opt/%{name}
@@ -44,5 +45,4 @@ Requires: curl git
 %license LICENSE
 
 %changelog
-* Wed Dec 27 2023 Cyril Levis <git@levis.name> 0.13.1-1
-- Init asdf-vm package
+%autochangelog
