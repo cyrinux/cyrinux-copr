@@ -4,7 +4,7 @@
 %global __cargo_is_lib() 0
 
 %global crate wldash
-%global commitId 70e53c1246e0d35b78c5db5146d0da6af716c293
+%global commit 70e53c1246e0d35b78c5db5146d0da6af716c293
 
 Name:           wldash
 Version:        0.3.0
@@ -32,7 +32,7 @@ BuildRequires: pulseaudio-libs-devel
 %description %{_description}
 
 %prep
-%autosetup -S git -v -n %{crate}-%{commitId} -p1 -a1
+%autosetup -S git -v -n %{crate}-%{commit} -p1 -a1
 %cargo_prep -v vendor
 
 %build

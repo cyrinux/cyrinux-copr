@@ -18,13 +18,12 @@ or display a visual indicator on the screen).}
 %global godocs          README.md
 
 Name:           %{goname}
-# Release:      %autorelease
-Release:        4%{?dist}
+Release:        %autorelease
 Summary:        A tool to detect when your YubiKey is waiting for a touch (to send notification or display a visual indicator on the screen)
 
 License:        ISC
 URL:            %{gourl}
-Source0:         %{gosource}
+Source0:        %{gosource}
 Source1:        https://raw.githubusercontent.com/maximbaz/%{goname}/%{version}/%{goname}.service
 Source2:        https://raw.githubusercontent.com/maximbaz/%{goname}/%{version}/%{goname}.socket
 Source3:        https://raw.githubusercontent.com/maximbaz/%{goname}/main/service.conf.example
@@ -49,14 +48,14 @@ BuildRequires: systemd
 %gobuild -o %{gobuilddir}/bin/%{goname} %{goipath}
 
 %install
-install -dm 0755 -v %{buildroot}%{_userunitdir}/
-install -Dm 0644 -v -t %{buildroot}%{_userunitdir}/ %{_sourcedir}/%{goname}.service
-install -Dm 0644 -v -t %{buildroot}%{_userunitdir}/ %{_sourcedir}/%{goname}.socket
-install -Dm 0644 -v -t %{buildroot}%{_pkgdocdir}/ %{_sourcedir}/service.conf.example
+%{__install} -dm 0755 -v %{buildroot}%{_userunitdir}/
+%{__install} -Dm 0644 -v -t %{buildroot}%{_userunitdir}/ %{_sourcedir}/%{goname}.service
+%{__install} -Dm 0644 -v -t %{buildroot}%{_userunitdir}/ %{_sourcedir}/%{goname}.socket
+%{__install} -Dm 0644 -v -t %{buildroot}%{_pkgdocdir}/ %{_sourcedir}/service.conf.example
 
 %gopkginstall
-install -dm 0755 -v %{buildroot}%{_bindir}
-install -Dm 0755 -v %{gobuilddir}/bin/* %{buildroot}%{_bindir}/
+%{__install} -dm 0755 -v %{buildroot}%{_bindir}
+%{__install} -Dm 0755 -v %{gobuilddir}/bin/* %{buildroot}%{_bindir}/
 
 %if %{with check}
 %check
