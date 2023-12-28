@@ -6,16 +6,6 @@
 %global goipath         github.com/motemen/go-colorine
 %global commit          45d19169413a019e4e2be69629dde5c7d92f8706
 
-# REMOVE BEFORE SUBMITTING THIS FOR REVIEW
-# ---
-# New Fedora packages should use %%gometa -f, which makes the package
-# ExclusiveArch to %%golang_arches_future and thus excludes the package from
-# %%ix86. If the new package is needed as a dependency for another package,
-# please consider removing that package from %%ix86 in the same way, instead of
-# building more go packages for i686. If your package is not a leaf package,
-# you'll need to coordinate the removal of the package's dependents first.
-# ---
-# REMOVE BEFORE SUBMITTING THIS FOR REVIEW
 %gometa -f
 
 

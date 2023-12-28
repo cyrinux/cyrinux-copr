@@ -6,16 +6,6 @@
 %global goipath         github.com/emersion/go-imap-idle
 %global commit          db256843144576c70e551f0732f1d1d3b5bec67e
 
-# REMOVE BEFORE SUBMITTING THIS FOR REVIEW
-# ---
-# New Fedora packages should use %%gometa -f, which makes the package
-# ExclusiveArch to %%golang_arches_future and thus excludes the package from
-# %%ix86. If the new package is needed as a dependency for another package,
-# please consider removing that package from %%ix86 in the same way, instead of
-# building more go packages for i686. If your package is not a leaf package,
-# you'll need to coordinate the removal of the package's dependents first.
-# ---
-# REMOVE BEFORE SUBMITTING THIS FOR REVIEW
 %gometa -f
 
 
