@@ -1,4 +1,4 @@
-%global _missing_build_ids_terminate_build 0
+%global debug_package %{nil}
 
 Name:           systemd-lock-handler
 Version:        2.4.2
@@ -18,10 +18,8 @@ Requires: systemd
 %prep
 %autosetup -n %{name}-v%{version}
 
-
 %build
-%make_build
-
+go build -ldflags="-linkmode=external -s"
 
 %install
 %make_install
@@ -32,7 +30,6 @@ Requires: systemd
 /usr/lib/%{name}
 %license LICENCE
 %doc README.md
-
 
 
 %changelog
