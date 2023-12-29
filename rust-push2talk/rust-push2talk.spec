@@ -5,7 +5,7 @@
 
 Name:           rust-push2talk
 Version:        1.2.5
-Release:        %autorelease
+Release:        2%{?dist}
 Summary:        Push to talk application is working with both wayland/x11 and pulseaudio
 
 License:        ISC
