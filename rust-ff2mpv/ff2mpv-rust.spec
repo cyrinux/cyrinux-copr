@@ -8,7 +8,7 @@
 
 Name:           ff2mpv
 Version:        1.1.0
-Release:        %autorelease
+Release:        2
 Summary:        Native messaging host for ff2mpv written in Rust
 
 SourceLicense:  GPLv3
