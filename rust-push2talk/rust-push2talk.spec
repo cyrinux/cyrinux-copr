@@ -46,7 +46,7 @@ License:        ISC
 
 %install
 %cargo_install
-%{__install} -Dm 0644 -v -t %{buildroot}%{_userunitdir}/ push2talk.service
+%{__install} -Dm 0644 -t %{buildroot}%{_userunitdir}/ push2talk.service
 
 %if %{with check}
 %check
