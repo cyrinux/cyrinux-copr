@@ -1,8 +1,8 @@
 diff --git a/systemd-autoreload.spec b/systemd-autoreload.spec
-index 700188f..a73d472 100644
+index 700188f..6021c25 100644
 --- a/systemd-autoreload.spec
 +++ b/systemd-autoreload.spec
-@@ -9,15 +9,13 @@
+@@ -9,18 +9,18 @@
  Name:           systemd-autoreload
  Version:        0.1.0
  Release:        %autorelease
@@ -22,7 +22,12 @@ index 700188f..a73d472 100644
  Source:         systemd-autoreload-0.1.0-vendor.tar.xz
  
  BuildRequires:  cargo-rpm-macros >= 25
-@@ -39,6 +37,20 @@ BuildRequires:  cargo-rpm-macros >= 25
++BuildRequires:  systemd-rpm-macros
++Requires:       systemd-libs
+ 
+ %global _description %{expand:
+ %{summary}.}
+@@ -39,6 +39,20 @@ BuildRequires:  cargo-rpm-macros >= 25
  
  %install
  %cargo_install
@@ -43,7 +48,7 @@ index 700188f..a73d472 100644
  
  %if %{with check}
  %check
-@@ -50,7 +62,8 @@ BuildRequires:  cargo-rpm-macros >= 25
+@@ -50,7 +64,8 @@ BuildRequires:  cargo-rpm-macros >= 25
  %license LICENSE.dependencies
  %license cargo-vendor.txt
  %doc README.md
