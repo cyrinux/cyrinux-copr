@@ -4,23 +4,23 @@ set -ex
 
 export COPR_PACKAGE
 
-git config --global user.name "John Doe"
-git config --global user.email johndoe@example.com
-
-CRATE="${COPR_PACKAGE#rust-}"
 REPO_URL="https://git.sr.ht/~whynothugo/systemd-autoreload"
-
 VERSION="0.1.0"
 
-git clone ${REPO_URL} ${CRATE}
+# git config --global user.name "John Doe"
+# git config --global user.email johndoe@example.com
+
+CRATE="${COPR_PACKAGE#rust-}"
+
+# Clone repo and create source archive
+git clone --depth=1 "${REPO_URL}" "${CRATE}"
 (
-    cd ${CRATE}
-    git archive --format=tar.gz -o ../${CRATE}-${VERSION}.tar.gz --prefix ${CRATE}-${VERSION}/ main
+    cd -- "${CRATE}"
+    git archive --format=tar.gz -o ../"${CRATE}-${VERSION}.tar.gz" --prefix "${CRATE}-${VERSION}"/ main
 )
 
-rust2rpm -V ./${CRATE}
+# Create vendor and spec
+rust2rpm -V ./"${CRATE}"
 
-# Path spec
-curl https://raw.githubusercontent.com/cyrinux/cyrinux-copr/main/${COPR_PACKAGE}/${CRATE}.spec.diff | git apply -v
-
-cat systemd-autoreload.spec
+# Patch spec file
+curl "https://raw.githubusercontent.com/cyrinux/cyrinux-copr/main/${COPR_PACKAGE}/${CRATE}.spec.diff" | git apply -v
