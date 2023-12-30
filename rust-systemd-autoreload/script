@@ -7,8 +7,8 @@ export COPR_PACKAGE
 REPO_URL="https://git.sr.ht/~whynothugo/systemd-autoreload"
 VERSION="0.1.0"
 
-# git config --global user.name "John Doe"
-# git config --global user.email johndoe@example.com
+git config --global user.name "Cyril Levis"
+git config --global user.email copr@levis.name
 
 CRATE="${COPR_PACKAGE#rust-}"
 
