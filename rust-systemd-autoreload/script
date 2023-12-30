@@ -11,7 +11,11 @@ git clone https://git.sr.ht/~whynothugo/systemd-autoreload
 
 rust2rpm -V ./${COPR_PACKAGE#rust-}
 
-sed -i 's#Summary:(.*)#Summary: Systemd units autoreload#' systemd-autoreload.spec
-sed -i 's#License:(.*)#License: MIT#' systemd-autoreload.spec
-sed -i 's#URL:(.*)#URL: https://git.sr.ht/~whynothugo/systemd-autoreload#' systemd-autoreload.spec
-sed -i 's#Source:(.*)#Source: systemd-autoreload-main.tar.gz#' systemd-autoreload.spec
+cat systemd-autoreload.spec
+
+sed -i 's#Summary:#Summary: Systemd units autoreload#' systemd-autoreload.spec
+sed -i 's#License:#License: MIT#' systemd-autoreload.spec
+sed -i 's@URL:@URL: https://git.sr.ht/~whynothugo/systemd-autoreload@' systemd-autoreload.spec
+sed -i 's@Source:@Source: systemd-autoreload-main.tar.gz@' systemd-autoreload.spec
+
+cat systemd-autoreload.spec
