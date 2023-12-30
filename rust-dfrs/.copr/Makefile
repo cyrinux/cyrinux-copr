@@ -1,5 +1,3 @@
-all: srpm
-
 srpm:
 	dnf install -y openssl openssl-devel git curl
 	dnf install -y rust2rpm
@@ -13,6 +11,5 @@ srpm:
 	rust2rpm -V -s dfrs
 	rpmbuild -bs --define "\_topdir /tmp/\_topdir" /tmp/scratch/rust-dfrs.spec
 	cp -r /tmp/\_topdir/SRPMS/\* \$(outdir)
-
 
 .PHONY: srpm
