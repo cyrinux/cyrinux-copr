@@ -13,4 +13,4 @@ CRATE="${COPR_PACKAGE#rust-}"
 rust2rpm -V -s -a "${CRATE}"
 
 # Patch spec file
-curl "https://raw.githubusercontent.com/cyrinux/cyrinux-copr/main/${COPR_PACKAGE}/${COPR_PACKAGE}.spec.diff" | git apply -v
+curl "https://raw.githubusercontent.com/cyrinux/cyrinux-copr/main/${COPR_PACKAGE}/${CRATE}.spec.diff" | git apply -v

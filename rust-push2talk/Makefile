@@ -1,7 +1,10 @@
 cur_dir := $(shell pwd)
 crate := "$(shell basename $(cur_dir))"
 
-all: create build
+all: create push build
+
+push:
+	git push
 
 create:
 	@echo "Creating crate $(crate)"
@@ -13,4 +16,4 @@ build:
 delete:
 	copr delete-package misc --name $(crate)
 
-.PHONY: create build delete
+.PHONY: create push build delete
