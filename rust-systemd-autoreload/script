@@ -1,4 +1,8 @@
-#! /bin/sh -x
+#! /bin/sh
+
+set -ex
+
+VERSION="0.1.0"
 
 git config --global user.name "John Doe"
 git config --global user.email johndoe@example.com
@@ -6,20 +10,11 @@ git config --global user.email johndoe@example.com
 git clone https://git.sr.ht/~whynothugo/systemd-autoreload
 (
     cd systemd-autoreload
-    git archive --format=tar.gz -o ../systemd-autoreload-main.tar.gz --prefix systemd-autoreload-main/ main
+    git archive --format=tar.gz -o ../systemd-autoreload-${VERSION}.tar.gz --prefix systemd-autoreload-${VERSION}/ main
 )
 
 rust2rpm -V ./systemd-autoreload
-
-echo $(pwd)
-
-find .
-
-cat systemd-autoreload.spec
-
-sed -i 's@Summary:        # FIXME@Summary: Systemd units autoreload@' systemd-autoreload.spec
-sed -i 's@License:        # FIXME@License: MIT@' systemd-autoreload.spec
-sed -i 's@URL:            # FIXME@URL: https://git.sr.ht/~whynothugo/systemd-autoreload@' systemd-autoreload.spec
-sed -i 's@Source:         # FIXME@Source: systemd-autoreload-main.tar.gz@' systemd-autoreload.spec
+curl https://raw.githubusercontent.com/cyrinux/cyrinux-copr/main/rust-systemd-autoreload/spec.diff -o
+git apply spec.diff
 
 cat systemd-autoreload.spec

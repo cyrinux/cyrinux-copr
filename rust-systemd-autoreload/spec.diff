@@ -1,0 +1,55 @@
+diff --git a/systemd-autoreload.spec b/systemd-autoreload.spec
+index 700188f..a73d472 100644
+--- a/systemd-autoreload.spec
++++ b/systemd-autoreload.spec
+@@ -9,15 +9,13 @@
+ Name:           systemd-autoreload
+ Version:        0.1.0
+ Release:        %autorelease
+-Summary:        # FIXME
++Summary:        Systemd autoreload
+ 
+ SourceLicense:  ISC
+-# FIXME: paste output of %%cargo_license_summary here
+-License:        # FIXME
+-# LICENSE.dependencies contains a full license breakdown
++License:        ISC
+ 
+-URL:            # FIXME
+-Source:         # FIXME
++URL:            https://git.sr.ht/~whynothugo/systemd-autoreload/
++Source:         systemd-autoreload-0.1.0.tar.gz
+ Source:         systemd-autoreload-0.1.0-vendor.tar.xz
+ 
+ BuildRequires:  cargo-rpm-macros >= 25
+@@ -39,6 +37,20 @@ BuildRequires:  cargo-rpm-macros >= 25
+ 
+ %install
+ %cargo_install
++%{__install} -dm 0755 %{buildroot}%{_systemd_util_dir}
++%{__mv} %{buildroot}%{_bindir}/systemd-autoreload %{buildroot}%{_systemd_util_dir}/systemd-autoreload
++cat > %{buildroot}%{_userunitdir}/systemd-autoreload.service << EOF
++[Unit]
++Description=Automatically reload systemd --user unit files
++
++[Service]
++ExecStart=%{_systemd_util_dir}/systemd-autoreload
++Type=notify
++Slice=background.slice
++
++[Install]
++WantedBy=default.target
++EOF
+ 
+ %if %{with check}
+ %check
+@@ -50,7 +62,8 @@ BuildRequires:  cargo-rpm-macros >= 25
+ %license LICENSE.dependencies
+ %license cargo-vendor.txt
+ %doc README.md
+-%{_bindir}/systemd-autoreload
++%{_systemd_util_dir}/systemd-autoreload
++%{_userunitdir}/systemd-autoreload.service
+ 
+ %changelog
+ %autochangelog
