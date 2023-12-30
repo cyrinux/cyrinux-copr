@@ -2,7 +2,7 @@
 
 Name:           SwayAudioIdleInhibit
 Version:        0.1.1
-Release:        %autorelease
+Release:        2
 Summary:        Prevents swayidle from sleeping while any application is outputting or receiving audio
 
 License:        GPLv3
