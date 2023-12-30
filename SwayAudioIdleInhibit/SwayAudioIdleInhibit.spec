@@ -14,7 +14,7 @@ BuildRequires:  gcc-c++
 BuildRequires:  wayland-protocols-devel wlroots-devel
 BuildRequires:  pipewire-devel pulseaudio-libs-devel
 BuildRequires:  systemd-devel
-Requires:       pipewire
+Requires:       pipewire-pulseaudio
 Requires:       libwayland-client
 
 %description
