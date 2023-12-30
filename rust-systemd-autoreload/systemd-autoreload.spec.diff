@@ -1,5 +1,5 @@
 diff --git a/systemd-autoreload.spec b/systemd-autoreload.spec
-index 700188f..6021c25 100644
+index 700188f..971e2b2 100644
 --- a/systemd-autoreload.spec
 +++ b/systemd-autoreload.spec
 @@ -9,18 +9,18 @@
@@ -27,12 +27,13 @@ index 700188f..6021c25 100644
  
  %global _description %{expand:
  %{summary}.}
-@@ -39,6 +39,20 @@ BuildRequires:  cargo-rpm-macros >= 25
+@@ -39,6 +39,21 @@ BuildRequires:  cargo-rpm-macros >= 25
  
  %install
  %cargo_install
 +%{__install} -dm 0755 %{buildroot}%{_systemd_util_dir}
 +%{__mv} %{buildroot}%{_bindir}/systemd-autoreload %{buildroot}%{_systemd_util_dir}/systemd-autoreload
++%{__install} -dm 0755 %{buildroot}%{_userunitdir}
 +cat > %{buildroot}%{_userunitdir}/systemd-autoreload.service << EOF
 +[Unit]
 +Description=Automatically reload systemd --user unit files
@@ -48,7 +49,7 @@ index 700188f..6021c25 100644
  
  %if %{with check}
  %check
-@@ -50,7 +64,8 @@ BuildRequires:  cargo-rpm-macros >= 25
+@@ -50,7 +65,8 @@ BuildRequires:  cargo-rpm-macros >= 25
  %license LICENSE.dependencies
  %license cargo-vendor.txt
  %doc README.md

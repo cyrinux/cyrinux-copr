@@ -21,6 +21,6 @@ git clone ${REPO_URL} ${CRATE}
 rust2rpm -V ./${CRATE}
 
 # Path spec
-curl https://raw.githubusercontent.com/cyrinux/cyrinux-copr/main/${COPR_PACKAGE}/spec.diff | git apply -v
+curl https://raw.githubusercontent.com/cyrinux/cyrinux-copr/main/${COPR_PACKAGE}/${CRATE}.spec.diff | git apply -v
 
 cat systemd-autoreload.spec
