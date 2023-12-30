@@ -9,7 +9,7 @@ git clone https://git.sr.ht/~whynothugo/systemd-autoreload
     git archive --format=tar.gz -o ../systemd-autoreload-main.tar.gz --prefix systemd-autoreload-main/ main
 )
 
-rust2rpm -V ./${COPR_PACKAGE#rust-}
+rust2rpm -V ./systemd-autoreload
 
 cat systemd-autoreload.spec
 
