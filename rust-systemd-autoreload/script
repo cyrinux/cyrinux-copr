@@ -1,7 +1,17 @@
 #!/bin/sh -x
+
 git config --global user.name "John Doe"
 git config --global user.email johndoe@example.com
 
 git clone https://git.sr.ht/~whynothugo/systemd-autoreload
+(
+    cd systemd-autoreload
+    git archive --format=tar.gz -o ../systemd-autoreload-main.tar.gz --prefix systemd-autoreload-main/ main
+)
 
-rust2rpm -V -s ./${COPR_PACKAGE#rust-}
+rust2rpm -V ./${COPR_PACKAGE#rust-}
+
+sed -i 's#Summary:(.*)#Summary: Systemd units autoreload#' systemd-autoreload.spec
+sed -i 's#License:(.*)#License: MIT#' systemd-autoreload.spec
+sed -i 's#URL:(.*)#URL: https://git.sr.ht/~whynothugo/systemd-autoreload#' systemd-autoreload.spec
+sed -i 's#Source:(.*)#Source: systemd-autoreload-main.tar.gz#' systemd-autoreload.spec
