@@ -11,6 +11,10 @@ git clone https://git.sr.ht/~whynothugo/systemd-autoreload
 
 rust2rpm -V ./systemd-autoreload
 
+echo $(pwd)
+
+find .
+
 cat systemd-autoreload.spec
 
 sed -i 's@Summary:@Summary: Systemd units autoreload@' systemd-autoreload.spec
