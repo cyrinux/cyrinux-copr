@@ -4,8 +4,13 @@ crate := "$(shell basename $(cur_dir))"
 all: create build
 
 create:
-	echo "Creating crate $(crate)"
-	copr add-package-custom misc --script ./bootstrap --name $(crate) --script-builddeps "curl rust2rpm git" --webhook-rebuild on
+	@echo "Creating crate $(crate)"
+	copr add-package-custom misc --script ./bootstrap --name $(crate) --script-builddeps "curl rust2rpm git openssl-devel" --webhook-rebuild on
 
 build:
 	copr build-package --nowait misc --name $(crate)
+
+delete:
+	copr delete-package misc --name rust-dfrs $(crate)
+
+.PHONY: create build delete
