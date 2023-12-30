@@ -4,15 +4,13 @@ set -ex
 
 export COPR_PACKAGE
 
-VERSION="${1:-0.1.1}"
-
 git config --global user.name "Cyril Levis"
 git config --global user.email copr@levis.name
 
 CRATE="${COPR_PACKAGE#rust-}"
 
 # Create vendor and spec
-rust2rpm -V -s -a "${CRATE}" "${VERSION}"
+rust2rpm -V -s -a "${CRATE}"
 
 # Patch spec file
 curl "https://raw.githubusercontent.com/cyrinux/cyrinux-copr/main/${COPR_PACKAGE}/${CRATE}.spec.diff" | git apply -v

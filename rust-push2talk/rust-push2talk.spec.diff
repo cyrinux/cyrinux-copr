@@ -1,5 +1,5 @@
 diff --git a/rust-push2talk.spec b/rust-push2talk.spec
-index 276bc14..3c8960d 100644
+index 276bc14..590862e 100644
 --- a/rust-push2talk.spec
 +++ b/rust-push2talk.spec
 @@ -1,8 +1,5 @@
@@ -31,7 +31,7 @@ index 276bc14..3c8960d 100644
  
  %global _description %{expand:
  This Push to talk application is working with both wayland/x11 and
-@@ -26,23 +29,17 @@ pulseaudio (pipewire).}
+@@ -26,22 +29,24 @@ pulseaudio (pipewire).}
  
  %package     -n %{crate}
  Summary:        %{summary}
@@ -42,25 +42,27 @@ index 276bc14..3c8960d 100644
  
  %description -n %{crate} %{_description}
  
--%files       -n %{crate}
--%license LICENSE.md
--%license LICENSE.dependencies
--%license cargo-vendor.txt
--%doc README.md
--%{_bindir}/push2talk
--
- %prep
--%autosetup -n %{crate}-%{version} -p1 -a1
++%prep
 +%autosetup -n %{crate}-%{version} -p1 -a1 -a2
- %cargo_prep -v vendor
++%cargo_prep -v vendor
++
+ %files       -n %{crate}
+ %license LICENSE.md
+ %license LICENSE.dependencies
+ %license cargo-vendor.txt
+ %doc README.md
++%{_userunitdir}/push2talk.service
+ %{_bindir}/push2talk
  
+-%prep
+-%autosetup -n %{crate}-%{version} -p1 -a1
+-%cargo_prep -v vendor
 +%generate_buildrequires
 +%cargo_generate_buildrequires
-+
+ 
  %build
  %cargo_build
- %{cargo_license_summary}
-@@ -51,11 +48,20 @@ License:        # FIXME
+@@ -51,6 +56,7 @@ License:        # FIXME
  
  %install
  %cargo_install
@@ -68,16 +70,3 @@ index 276bc14..3c8960d 100644
  
  %if %{with check}
  %check
- %cargo_test
- %endif
- 
-+%files       -n %{crate}
-+%license LICENSE.md
-+%license LICENSE.dependencies
-+%license cargo-vendor.txt
-+%doc README.md
-+%{_userunitdir}/push2talk.service
-+%{_bindir}/push2talk
-+
- %changelog
- %autochangelog
