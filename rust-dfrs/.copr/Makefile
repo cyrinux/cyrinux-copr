@@ -1,2 +1,14 @@
 srpm:
-	./script
+	dnf install -y openssl openssl-devel
+	dnf install -y rust2rpm curl
+	rm -rf /build/package
+	rm -rf /tmp/\_topdir
+	rm -rf /tmp/scratch
+	mkdir -p /tmp/\_topdir/SOURCES
+	mkdir -p /tmp/scratch
+	cp -r ./\* /tmp/scratch
+	cd /tmp/scratch
+	rust2rpm -V -s dfrs
+	rpmbuild -bs --define "\_topdir /tmp/\_topdir" /tmp/scratch/*.spec
+	cp -r /tmp/\_topdir/SRPMS/\* \$(outdir)
+
