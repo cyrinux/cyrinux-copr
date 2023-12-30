@@ -14,7 +14,7 @@ git clone https://git.sr.ht/~whynothugo/systemd-autoreload
 )
 
 rust2rpm -V ./systemd-autoreload
-curl https://raw.githubusercontent.com/cyrinux/cyrinux-copr/main/rust-systemd-autoreload/spec.diff -o
+curl https://raw.githubusercontent.com/cyrinux/cyrinux-copr/main/rust-systemd-autoreload/spec.diff -O
 git apply spec.diff
 
 cat systemd-autoreload.spec
