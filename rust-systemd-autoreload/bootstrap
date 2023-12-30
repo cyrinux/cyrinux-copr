@@ -1,0 +1,5 @@
+#!/bin/sh -x
+
+export COPR_PACKAGE
+
+curl https://raw.githubusercontent.com/cyrinux/cyrinux-copr/main/${COPR_PACKAGE}/script | sh

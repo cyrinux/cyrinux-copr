@@ -4,7 +4,7 @@
 %global crate push2talk
 
 Name:           rust-push2talk
-Version:        1.2.7
+Version:        1.2.5
 Release:        2
 Summary:        Push to talk application is working with both wayland/x11 and pulseaudio
 
