@@ -19,7 +19,7 @@ IDLE, golang version.}
 %global godocs          CHANGELOG.rst README.md
 
 Name:           %{goname}
-Release:        %autorelease
+Release:        3
 Summary:        Execute scripts on IMAP mailbox changes (new/deleted/updated messages) using IDLE, golang version
 
 License:        GPL-3.0-only
@@ -48,7 +48,7 @@ BuildRequires: systemd
 
 %install
 install -dm 0755 -v %{buildroot}/%{_userunitdir}/
-install -Dm 0644 -v -t %{buildroot}/%{_userunitdir}/ %{_sourcedir}/%{goname}@.service
+install -Dm 0644 -v -t %{buildroot}/%{_userunitdir}/ %{goname}@.service
 
 %gopkginstall
 install -m 0755 -vd                     %{buildroot}%{_bindir}
