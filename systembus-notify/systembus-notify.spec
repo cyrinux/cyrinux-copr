@@ -21,7 +21,7 @@ BuildRequires: systemd-devel
 
 License:        MIT
 URL:        https://github.com/rfjakob/systembus-notify
-Source:     https://github.com/rfjakob/%{name}/archive/refs/tags/v%{version}.tar.gz
+Source:     %{url}/archive/refs/tags/v%{version}.tar.gz
 
 %description %{common_description}
 
@@ -33,9 +33,9 @@ make
 
 %install
 install -dm 0755 -v %{buildroot}%{_bindir}
-install -Dm 0755 -v %{name} %{buildroot}%{_bindir}/
+install -Dm 0755 -v -t %{buildroot}%{_bindir}/ %{name}
 install -dm 0755 -v %{buildroot}%{_sysconfdir}/xdg/autostart
-install -Dm 0644 -v %{name}.desktop %{buildroot}%{_sysconfdir}/xdg/autostart/
+install -Dm 0644 -v -t %{buildroot}%{_sysconfdir}/xdg/autostart/ %{name}.desktop
 
 %files
 %{_bindir}/%{name}
@@ -44,7 +44,4 @@ install -Dm 0644 -v %{name}.desktop %{buildroot}%{_sysconfdir}/xdg/autostart/
 %doc README.md
 
 %changelog
-* Mon Dec 25 2023 Cyril Levis <git@levis.name> 1.1-1
-- new package built with tito
-
 %autochangelog

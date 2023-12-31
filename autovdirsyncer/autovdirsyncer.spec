@@ -5,8 +5,8 @@
 %global goname autovdirsyncer
 %global goipath         git.sr.ht/~whynothugo/autovdirsyncer
 %global forgeurl        https://git.sr.ht/~whynothugo/autovdirsyncer
-%global tag             0.2.1
-Version:                v%{tag}
+%global tag             v0.2.1
+Version:                v0.2.1
 
 %gometa -f
 
