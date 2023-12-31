@@ -1,5 +1,5 @@
 diff --git a/rust-push2talk.spec b/rust-push2talk.spec
-index 276bc14..5f8fcc2 100644
+index 276bc14..1af3f87 100644
 --- a/rust-push2talk.spec
 +++ b/rust-push2talk.spec
 @@ -1,8 +1,5 @@
@@ -8,7 +8,7 @@ index 276bc14..5f8fcc2 100644
 -
 -# prevent library files from being installed
 -%global __cargo_is_lib() 0
-+%bcond_without check 0
++%bcond_without check 1
  
  %global crate push2talk
  
