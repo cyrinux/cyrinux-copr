@@ -1,23 +1,19 @@
 %global forgeurl https://github.com/magic-wormhole/magic-wormhole.rs
 %global _reponame magic-wormhole.rs
-
 %global debug_package %{nil}
 
-Version: 0.6.1
+Version:    0.6.1
 %global tag 0.6.1
-
 %forgemeta
 
 Name:   wormhole-rs
 Release:        %autorelease
 Summary:        Get things from one computer to another, safely
-
 License:        EUPL-1.2
 URL:            %{forgeurl}
 Source:         %{forgesource}
-
-Requires: libxcb
 BuildRequires: cargo-rpm-macros >= 24
+Requires: libxcb
 
 %global _description %{expand:
 Get things from one computer to another, safely.}
