@@ -10,20 +10,20 @@ goprep:
 	go env -w GOSUMDB=sum.golang.org
 
 golang-%.spec: goprep
-	@if [ -x bundle_go_deps_for_rpm.sh ]; then \
-		bash bundle_go_deps_for_rpm.sh $(specfile)
+	if [ -x bundle_go_deps_for_rpm.sh ]; then \
+		bash bundle_go_deps_for_rpm.sh $(specfile); \
 	fi
 
 rustprep:
 	dnf install --nodocs -y rust2rpm git-core
 
 rust-%.spec: rustprep
-	@if [ -x bundle_rust_deps_for_rpm.sh ]; then \
-		bash bundle_rust_deps_for_rpm.sh $(specfile)
+	if [ -x bundle_rust_deps_for_rpm.sh ]; then \
+		bash bundle_rust_deps_for_rpm.sh $(specfile); \
 	fi
 
 %.spec:
-	echo "Nothing to do"
+	echo "Nothing special to do"
 
 srpm: prepare $(specfile)
 	spectool -g ./$(specfile)
