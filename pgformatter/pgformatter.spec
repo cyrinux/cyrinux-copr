@@ -1,4 +1,3 @@
-
 %global debug_package %{nil}
 %global forgeurl        https://github.com/darold/pgFormatter
 %global name pgFormatter
@@ -21,7 +20,8 @@ BuildRequires:  make
 BuildRequires:  perl-generators
 BuildRequires:  perl-interpreter
 BuildRequires:  perl(ExtUtils::MakeMaker) >= 6.76
-Requires: perl
+Requires:       perl
+Provides:       pgformatter
 
 License:    MIT
 URL:        %{forgeurl}
