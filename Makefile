@@ -18,11 +18,11 @@ check_requirements:
 	@command -v git >/dev/null 2>&1 || { echo >&2 "Git is not installed. Aborting."; exit 1; }
 	@command -v copr-cli >/dev/null 2>&1 || { echo >&2 "Copr CLI 'copr-cli' is not installed. Aborting."; exit 1; }
 
-
 # Create the package
 create:
 	@echo "Creating $(pkg)"
-	copr-cli add-package-scm misc --clone-url https://github.com/cyrinux/cyrinux-copr --subdir $(pkg) --method make_srpm --webhook-rebuild on --name $(pkg) || true
+	copr-cli add-package-scm misc --clone-url https://github.com/cyrinux/cyrinux-copr --subdir $(pkg) --method make_srpm --spec $(SPEC_FILE) --commit main --webhook-rebuild on --name $(pkg)
+	# copr-cli add-package-scm misc --clone-url https://github.com/cyrinux/cyrinux-copr --subdir $(pkg) --method rpkg --spec $(SPEC_FILE) --commit main --webhook-rebuild on --name $(pkg)
 
 # Build from local spec file
 build:
