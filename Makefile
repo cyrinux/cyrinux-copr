@@ -1,11 +1,13 @@
+# Usage: make package=pkg_directory create
 SHELL := /bin/bash
-
 package ?= .
-SPEC_FILE = $(wildcard $(package)/*.spec)
 cur_dir := $(realpath $(package))
-pkg := $(notdir $(cur_dir))
+SPEC_FILE = $(wildcard $(package)/*.spec)
+PKG := $(notdir $(cur_dir))
+PROJECT := "misc"
+GIT_COPR_URL := "https://github.com/cyrinux/cyrinux-copr"
 
-all: check_requirements create build
+all: check_requirements create rebuild
 
 # Check if SPEC_FILE is empty
 ifeq ($(strip $(SPEC_FILE)),)
@@ -20,9 +22,15 @@ check_requirements:
 
 # Create the package
 create:
-	@echo "Creating $(pkg)"
-	copr-cli add-package-scm misc --clone-url https://github.com/cyrinux/cyrinux-copr --subdir $(pkg) --method make_srpm --spec $(SPEC_FILE) --commit main --webhook-rebuild on --name $(pkg)
-	# copr-cli add-package-scm misc --clone-url https://github.com/cyrinux/cyrinux-copr --subdir $(pkg) --method rpkg --spec $(SPEC_FILE) --commit main --webhook-rebuild on --name $(pkg)
+	@echo "Creating $(PKG) on $(PROJECT) with $(SPEC_FILE)"
+	copr-cli add-package-scm $(PROJECT) \
+		--clone-url $(GIT_COPR_URL) \
+		--subdir $(PKG) \
+		--method make_srpm \
+		--spec $(SPEC_FILE) \
+		--commit main \
+		--webhook-rebuild on \
+		--name $(PKG)
 
 # Build from local spec file
 build:
@@ -30,11 +38,11 @@ build:
 
 # Rebuild the package for repo
 rebuild:
-	copr-cli build-package --nowait misc --name $(pkg)
+	copr-cli build-package --nowait misc --name $(PKG)
 
 # Delete the package
 delete:
-	copr-cli delete-package misc --name $(pkg)
+	copr-cli delete-package misc --name $(PKG)
 
 .PHONY: create build rebuild delete update_version check_requirements
 
