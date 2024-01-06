@@ -1,8 +1,8 @@
 %global debug_package %{nil}
 
-%global commit0 464a5f05cb2da85e008884ca7fe08a8e51b55043
+%global commit0 b1a43f43da29e38bf62d4d298127299a62258417
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
-%global bumpver 2
+%global bumpver 3
 
 %global _name   nmtrust
 Name:           %{_name}-git
