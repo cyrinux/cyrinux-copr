@@ -1,7 +1,9 @@
 %global _vpath_srcdir .
 
-%global forgeurl https://github.com/ErikReider/SwayAudioIdleInhibit
-%global tag    v0.1.1
+#global forgeurl https://github.com/ErikReider/SwayAudioIdleInhibit
+%global forgeurl https://github.com/rkrishn7/SwayAudioIdleInhibit
+%global commit 7a0611fc16e09b0efcf84cae8d4254fa41fcf297
+#global tag    v0.1.1
 %forgemeta
 
 Name:           SwayAudioIdleInhibit
@@ -25,7 +27,7 @@ Requires:       libwayland-client
 %description
 
 %prep
-%autosetup -n %{name}-%{version} -p1
+%autosetup -n %{name}-%{commit} -p1
 
 %build
 %meson
