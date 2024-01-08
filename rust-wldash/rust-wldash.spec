@@ -34,7 +34,7 @@ BuildRequires: dbus-devel
 %build
 export RUSTUP_TOOLCHAIN=stable
 export CARGO_TARGET_DIR=target
-%{__cargo} build --frozen --release --all-features
+%{__cargo} build --frozen --release
 
 %install
 %{__install} -m 0755 -vd %{buildroot}%{_bindir}
