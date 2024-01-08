@@ -19,6 +19,11 @@ else
     newTag="$(curl -s "https://api.github.com/repos/${REPO}/releases" | jq -r '.[0].name' | sed 's/^v//')"
 fi
 
+oldCommit="$(sed -n 's/.*\bcommit0\b \(.*\)/\1/p' $SPEC)"
+newCommit="$(curl -s -H "Accept: application/vnd.github.VERSION.sha" "https://api.github.com/repos/${REPO#'~'}/commits/master")"
+
+sed -i "s/$oldCommit/$newCommit/" $SPEC
+
 rpmdev-vercmp "$oldTag" "$newTag" || ec=$?
 case $ec in
     0) ;;

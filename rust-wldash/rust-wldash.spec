@@ -1,19 +1,22 @@
 %bcond_without check
 
-%global forgeurl https://git.sr.ht/~kennylevinsen/wldash
-%global commit 70e53c1246e0d35b78c5db5146d0da6af716c293
-%forgemeta
+%global commit0 65d622c81f2e753f462d23121fa1939b0a84a3e0
+%global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
+%global bumpver 2
 
-Name:           wldash
-Version:        0.3.0
+%global _name wldash
+
+Name:           wldash-git
+Provides:       %{_name}
+Version:        0.3.0%{?bumpver:^%{bumpver}.git%{shortcommit0}}
 Release:        %autorelease
 Summary:        A very good tiny wayland launcher.
 
 SourceLicense:  None
 License:        GPLv3
 
-Url:     %{forgeurl}
-Source0: %{forgesource}
+Url:     https://git.sr.ht/~kennylevinsen/wldash
+Source:  %{url}/archive/%{commit0}/%{name}-%{shortcommit0}.tar.gz
 
 BuildRequires: cargo-rpm-macros >= 25
 BuildRequires: git-core
@@ -21,6 +24,7 @@ BuildRequires: pkgconfig(alsa)
 BuildRequires: pkgconfig(fontconfig)
 BuildRequires: pkgconfig(libpulse)
 BuildRequires: dbus-devel
+
 
 %global _description %{expand:
 %{summary}.}
