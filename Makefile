@@ -3,6 +3,7 @@ SHELL := /bin/bash
 package ?= .
 cur_dir := $(realpath $(package))
 SPEC_FILE = $(wildcard $(package)/*.spec)
+SPEC_NAME := $(shell basename $(SPEC_FILE))
 PKG := $(notdir $(cur_dir))
 PROJECT := "misc"
 GIT_COPR_URL := "https://github.com/cyrinux/cyrinux-copr"
@@ -27,7 +28,7 @@ create:
 		--clone-url $(GIT_COPR_URL) \
 		--subdir $(PKG) \
 		--method make_srpm \
-		--spec $(SPEC_FILE) \
+		--spec $(SPEC_NAME) \
 		--commit main \
 		--webhook-rebuild on \
 		--name $(PKG)
