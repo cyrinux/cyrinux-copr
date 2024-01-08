@@ -17,7 +17,7 @@ Autovdirsyncer is a wrapper to daemonise vdirsyncer.
 %global godocs          README.md
 
 Name:           %{goname}
-Release:        %autorelease
+Release:        %autorelease -b2
 Summary:        Execute scripts on IMAP mailbox changes (new/deleted/updated messages) using IDLE, golang version
 
 License: GPL-3.0-only
@@ -45,8 +45,8 @@ Requires: systemd
 %install
 %{__install} -dm 0755 -v %{buildroot}/%{_userunitdir}/
 %{__install} -Dm 0644 -v -t %{buildroot}/%{_userunitdir}/ %{goname}.service
-%{__install} -m 0755 -vd %{buildroot}%{_bindir}
-%{__install} -m 0755 -vp %{gobuilddir}/bin/%{goname} %{buildroot}%{_bindir}/
+%{__install} -m 0755 -vd %{buildroot}/usr/lib
+%{__install} -m 0755 -vp %{gobuilddir}/bin/%{goname} %{buildroot}/usr/lib/
 
 %if %{with check}
 %check
@@ -56,7 +56,7 @@ Requires: systemd
 %files
 %license LICENCE
 %doc README.md
-%{_bindir}/%{goname}
+/usr/lib/%{goname}
 %{_userunitdir}/%{goname}.service
 
 %changelog
