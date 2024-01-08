@@ -1,8 +1,8 @@
 %bcond_without check
 
-%global commit0 65d622c81f2e753f462d23121fa1939b0a84a3e0
+%global commit0 70e53c1246e0d35b78c5db5146d0da6af716c293
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
-%global bumpver 2
+%global bumpver 3
 
 %global _name wldash
 
