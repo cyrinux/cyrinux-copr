@@ -2,8 +2,8 @@
 
 %global forgeurl        https://github.com/xbglowx/vault-kv-mv
 %global goipath         github.com/xbglowx/vault-kv-mv
-Version:     0.05
-%global tag v0.05
+Version:     0.0.8
+%global tag v0.0.8
 
 %gometa -L -f
 %forgemeta
