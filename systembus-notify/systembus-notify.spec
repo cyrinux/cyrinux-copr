@@ -2,7 +2,7 @@
 %global tag v1.1
 %forgemeta
 
-Version:     1.1
+Version:   1.1
 
 %global name systembus-notify
 
@@ -12,12 +12,12 @@ Systembus-notify - system bus notification daemon.}
 %global licenses      LICENSE
 %global docs          README.md
 
-Name:           %{name}
-Release:        %autorelease -b1
-Summary:        Systembus-notify - system bus notification daemon
-License:    MIT
-URL:        %{forgeurl}
-Source:     %{forgesource}
+Name:      %{name}
+Release:   %autorelease -b1
+Summary:   Systembus-notify - system bus notification daemon
+License:   MIT
+URL:       %{forgeurl}
+Source:    %{forgesource}
 
 BuildRequires: clang
 BuildRequires: systemd-devel
