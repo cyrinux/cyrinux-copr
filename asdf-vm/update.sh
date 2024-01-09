@@ -9,7 +9,7 @@ REPO=asdf-vm/asdf
 ec=0
 
 oldTag="$(rpmspec -q --qf "%{version}\n" ${SPEC} | head -1 | sed 's/\^.*//')"
-newTag="$(curl -s "https://api.github.com/repos/${REPO}/releases" | jq -r '.[0].name' | sed 's/^v//')"
+newTag="$(curl -s "https://api.github.com/repos/${REPO}/tags" | jq -r '.[0].name' | sed 's/^v//')"
 
 rpmdev-vercmp "$oldTag" "$newTag" || ec=$?
 case $ec in
