@@ -10,7 +10,7 @@
 
 Name:           %{_name}-git
 Provides:       %{_name}
-Version:        0.3.0%{?bumpver:^%{bumpver}.git%{shortcommit0}}
+Version:        0.3.0%{?bumpver:^%{bumpver}.git%{shortcommit}}
 Release:        %autorelease
 Summary:        A very good tiny wayland launcher.
 
