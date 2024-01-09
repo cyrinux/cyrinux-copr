@@ -9,7 +9,7 @@ REPO=xbglowx/vault-kv-mv
 ec=0
 
 oldTag="$(rpmspec -q --qf "%{version}\n" ${SPEC} | head -1 | sed 's/\^.*//')"
-newTag="$(curl -s "https://api.github.com/repos/${REPO}/tags" | jq -r '.[0].name' | sed 's/^v//')"
+newTag="$(curl -s "https://api.github.com/repos/${REPO}/tags" | jq -r '.[] | select(.name != "v0.05").name' | head -1 | sed 's/^v//')"
 
 rpmdev-vercmp "$oldTag" "$newTag" || ec=$?
 case $ec in
