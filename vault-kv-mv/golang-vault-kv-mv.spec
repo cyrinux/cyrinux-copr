@@ -39,6 +39,7 @@ BuildRequires: pkgconfig(openssl)
 %gobuild -o %{gobuilddir}/bin/%{goname} %{goipath}
 %{_fixperms}  %{gobuilddir}
 
+
 %install
 %{__install} -m 0755 -vd                     %{buildroot}%{_bindir}
 %{__install} -m 0755 -vp %{gobuilddir}/bin/* %{buildroot}%{_bindir}/
@@ -49,8 +50,8 @@ BuildRequires: pkgconfig(openssl)
 %endif
 
 %files
-%license LICENSE
 %{_bindir}/%{name}
+%license LICENSE
 
 %changelog
 %autochangelog

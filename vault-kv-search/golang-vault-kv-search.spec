@@ -34,14 +34,24 @@ BuildRequires: pkgconfig(openssl)
 %goprep -k
 %setup -q -T -D -a 1
 %autopatch -p1
+%{__mkdir} completions
 
 %build
 %gobuild -o %{gobuilddir}/bin/%{goname} %{goipath}
+%{gobuilddir}/bin/%{goname} completion fish > completions/%{goname}.fish
+%{gobuilddir}/bin/%{goname} completion bash > completions/%{goname}.bash
+%{gobuilddir}/bin/%{goname} completion zsh > completions/_%{goname}
 %{_fixperms}  %{gobuilddir}
 
 %install
 %{__install} -m 0755 -vd                     %{buildroot}%{_bindir}
 %{__install} -m 0755 -vp %{gobuilddir}/bin/* %{buildroot}%{_bindir}/
+%{__install} -m 0755 -vd $RPM_BUILD_ROOT%{fish_completions_dir}
+%{__cp} completions/%{name}.fish $RPM_BUILD_ROOT%{fish_completions_dir}/%{name}.fish
+%{__install} -m 0755 -vd $RPM_BUILD_ROOT%{bash_completions_dir}
+%{__cp} completions/%{name}.bash $RPM_BUILD_ROOT%{bash_completions_dir}/%{name}
+%{__install} -m 0755 -vd $RPM_BUILD_ROOT%{zsh_completions_dir}
+%{__cp} completions/_%{name} $RPM_BUILD_ROOT%{zsh_completions_dir}/_%{name}
 
 %if %{with check}
 %check
@@ -51,6 +61,9 @@ BuildRequires: pkgconfig(openssl)
 %files
 %license LICENSE
 %{_bindir}/%{name}
+%{zsh_completions_dir}
+%{bash_completions_dir}
+%{fish_completions_dir}
 
 %changelog
 %autochangelog
