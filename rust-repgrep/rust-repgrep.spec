@@ -8,7 +8,7 @@
 Name:           rust-repgrep
 Version:        0.15.0
 %global tag     0.15.0
-Release:        %autorelease -b2
+Release:        %autorelease -b3
 Summary:        An interactive replacer for ripgrep that makes it easy to find and replace across files on the command line
 
 License:        Unlicense OR MIT OR Apache-2.0
