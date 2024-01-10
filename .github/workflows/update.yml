@@ -41,3 +41,5 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           find -name "update.sh" -execdir {} \;
+
+      - uses: gautamkrishnar/keepalive-workflow@v1
