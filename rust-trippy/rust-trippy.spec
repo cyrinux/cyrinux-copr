@@ -36,12 +36,10 @@ target/release/%{_binname} --generate zsh > completions/_%{name}
 %install
 %{__install} -Dm0755 target/release/%{_binname} %{buildroot}%{_bindir}/%{_binname}
 %{__chmod} +s %{buildroot}%{_bindir}/%{_binname}
-%{__install} -m 0755 -vd $RPM_BUILD_ROOT%{fish_completions_dir}
-%{__cp} completions/%{name}.fish $RPM_BUILD_ROOT%{fish_completions_dir}/%{name}.fish
-%{__install} -m 0755 -vd $RPM_BUILD_ROOT%{bash_completions_dir}
-%{__cp} completions/%{name}.bash $RPM_BUILD_ROOT%{bash_completions_dir}/%{name}
-%{__install} -m 0755 -vd $RPM_BUILD_ROOT%{zsh_completions_dir}
-%{__cp} completions/_%{name} $RPM_BUILD_ROOT%{zsh_completions_dir}/_%{name}
+%{__install} -m 0755 -vd %{buildroot}{%{fish_completions_dir},%{zsh_completions_dir},%{bash_completions_dir}}
+%{__install} -Dm 0644 -v -t %{buildroot}%{fish_completions_dir}/%{name}.fish completions/%{name}.fish
+%{__install} -Dm 0644 -v -t %{buildroot}%{bash_completions_dir}/%{name} completions/%{name}.bash
+%{__install} -Dm 0644 -v -t %{buildroot}%{zsh_completions_dir}/_%{name} completions/_%{name}
 
 %if %{with check}
 %check
