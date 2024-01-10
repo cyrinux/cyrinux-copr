@@ -56,9 +56,9 @@ License:        Unlicense OR MIT OR Apache-2.0
 %{cargo_license} > LICENSE.dependencies
 %{cargo_vendor_manifest}
 %{_bindir}/asciidoctor --doctype manpage --backend manpage --destination-dir completions doc/rgr.1.template
-%{_bindir}/rg --generate=complete-bash | sed 's/rg/rgr/g' > completions/%{_binname}.bash
-%{_bindir}/rg --generate=complete-zsh | sed 's/rg/rgr/g' > completions/_%{_binname}
-%{_bindir}/rg --generate=complete-fish | sed 's/rg/rgr/g' > completions/%{_binname}.fish
+%{_bindir}/rg --generate=complete-bash | sed 's/ rg/ rgr/g; s/_rg/_rgr/g' > completions/%{_binname}.bash
+%{_bindir}/rg --generate=complete-zsh | sed 's/ rg/ rgr/g; s/_rg/_rgr/g' > completions/_%{_binname}
+%{_bindir}/rg --generate=complete-fish | sed 's/ rg/ rgr/g; s/_rg/_rgr/g' > completions/%{_binname}.fish
 
 %install
 %cargo_install
