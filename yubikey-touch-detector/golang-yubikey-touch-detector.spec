@@ -16,7 +16,7 @@ or display a visual indicator on the screen).}
 %global godocs          README.md
 
 Name:    %{goname}
-Release: %autorelease -b5
+Release: %autorelease -b6
 Summary: A tool to detect when your YubiKey is waiting for a touch (to send notification or display a visual indicator on the screen)
 
 License: ISC
@@ -31,7 +31,8 @@ Source6: https://github.com/maximbaz/%{goname}/releases/download/%{version}/%{go
 Source7: https://github.com/maximbaz.gpg
 
 
-BuildRequires: systemd-rpm-macros go-rpm-macros golang git-core gnupg2
+BuildRequires: systemd-rpm-macros go-rpm-macros golang git-core gnupg2 gpgme-devel
+Requires: gpgme
 %{?systemd_requires}
 
 %description %{common_description}
