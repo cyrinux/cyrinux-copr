@@ -1,14 +1,14 @@
 %bcond_without check
 %global __cargo_is_lib() 0
 
-%global tag 0.4.0
+%global tag 0.4.1
 %global forgeurl https://github.com/marin-m/SongRec
 %forgemeta
 
 %global crate songrec
 
 Name:           rust-songrec
-Version:        0.4.0
+Version:        0.4.1
 Release:        %autorelease -b1
 Summary:        Open-source Shazam client for Linux, written in Rust
 
