@@ -9,13 +9,15 @@
 
 Name:           rust-songrec
 Version:        0.4.2
-Release:        %autorelease -b1
+Release:        %autorelease -b2
 Summary:        Open-source Shazam client for Linux, written in Rust
 
 License:        GPL-3.0+
 URL:            https://crates.io/crates/songrec
-Source:         %{crates_source}
-Source:         songrec-%{tag}-vendor.tar.xz
+Source0:        %{crates_source}
+Source1:        songrec-%{tag}-vendor.tar.xz
+Source2:        https://raw.githubusercontent.com/marin-m/SongRec/%{tag}/packaging/rootfs/usr/share/applications/com.github.marinm.songrec.desktop
+Source3:        https://raw.githubusercontent.com/marin-m/SongRec/%{tag}/packaging/rootfs/usr/share/icons/hicolor/scalable/apps/com.github.marinm.songrec.svg
 
 BuildRequires:  cargo-rpm-macros >= 25
 BuildRequires:  pkgconfig(alsa)
@@ -27,6 +29,7 @@ BuildRequires:  pkgconfig(cairo-gobject)
 BuildRequires:  pkgconfig(pango)
 BuildRequires:  gdk-pixbuf2-devel
 BuildRequires:  gtk3-devel
+Requires: ffmpeg libpulse openssl
 
 %global _description %{expand:
 An open-source Shazam client for Linux, written in Rust.}
@@ -45,6 +48,8 @@ License:        GPL-3.0+
 %license cargo-vendor.txt
 %doc README.md
 %{_bindir}/songrec
+%{_usr}/share/applications/*.desktop
+%{_usr}/share/icons/hicolor/scalable/apps/*.svg
 
 %prep
 %autosetup -n %{crate}-%{version} -p1 -a1
@@ -58,6 +63,10 @@ License:        GPL-3.0+
 
 %install
 %cargo_install
+%{__install} -m 0755 -vd %{buildroot}%{_datarootdir}/applications
+%{__install} -m 0644 -vp %{SOURCE2} %{buildroot}%{_datarootdir}/applications/
+%{__install} -m 0755 -vd %{buildroot}%{_datarootdir}/icons/hicolor/scalable/apps
+%{__install} -m 0644 -vp %{SOURCE3}  %{buildroot}%{_datarootdir}/icons/hicolor/scalable/apps/
 
 %if %{with check}
 %check
