@@ -2,8 +2,8 @@
 set -euxo pipefail
 
 PROJECT=cyrinux/misc
-NAME=skyspell-kak
-SPEC=rust-skyspell-kak.spec
+NAME=skyspell
+SPEC=rust-skyspell.spec
 REPO=your-tools/skyspell
 FORGE=github
 
