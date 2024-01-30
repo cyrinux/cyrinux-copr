@@ -17,6 +17,7 @@ Source:         %{crate}-%{version}-vendor.tar.xz
 
 BuildRequires:  cargo-rpm-macros >= 25
 BuildRequires:  enchant2-devel sqlite-devel
+Recommends: aspell aspell-en
 
 %global _description %{expand:
 A fast and handy spell checker for the command line.}
@@ -30,7 +31,6 @@ License:        BSD-3-Clause
 %description -n %{crate} %{_description}
 
 %files       -n %{crate}
-%license LICENSE
 %license LICENSE.dependencies
 %license cargo-vendor.txt
 %doc README.md
