@@ -2,8 +2,8 @@
 
 %global forgeurl https://github.com/x-motemen/ghq
 %global goipath         github.com/x-motemen/ghq
-Version:                1.4.2
-%global tag            v1.4.2
+Version:                1.5.0
+%global tag            v1.5.0
 
 
 BuildRequires: git-core golang go-rpm-macros
