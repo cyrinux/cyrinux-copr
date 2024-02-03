@@ -3,7 +3,7 @@ set -euxo pipefail
 
 PROJECT=cyrinux/misc
 NAME=hyprland-autoname-workspaces
-SPEC=${NAME}.spec
+SPEC=rust-${NAME}.spec
 REPO=hyprland-community/hyprland-autoname-workspaces
 
 ec=0
