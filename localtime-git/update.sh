@@ -3,7 +3,7 @@ set -euxo pipefail
 
 PROJECT=cyrinux/misc
 NAME=localtime-git
-SPEC=golang-localtime.spec
+SPEC=golang-localtime-git.spec
 REPO=Stebalien/localtime
 
 ec=0
