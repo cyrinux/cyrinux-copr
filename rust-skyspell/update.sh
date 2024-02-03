@@ -20,7 +20,7 @@ else
 fi
 
 oldCommit="$(sed -n 's/.*\bcommit\b \(.*\)/\1/p' $SPEC)"
-newCommit="$(curl -s -H "Accept: application/vnd.github.VERSION.sha" "https://api.github.com/repos/${REPO#'~'}/commits/master")"
+newCommit="$(curl -s -H "Accept: application/vnd.github.VERSION.sha" "https://api.github.com/repos/${REPO#'~'}/commits/main")"
 
 sed -i "s/$oldCommit/$newCommit/" $SPEC
 
