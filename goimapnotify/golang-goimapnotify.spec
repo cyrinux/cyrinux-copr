@@ -2,8 +2,8 @@
 
 %global goipath         gitlab.com/shackra/goimapnotify
 %global forgeurl        https://gitlab.com/shackra/goimapnotify
-Version:                2.3.10
-%global tag             2.3.10
+Version:                2.3.11
+%global tag             2.3.11
 
 %gometa -L -f
 %forgemeta
