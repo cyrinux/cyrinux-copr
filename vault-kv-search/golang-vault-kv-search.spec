@@ -2,8 +2,8 @@
 
 %global forgeurl        https://github.com/xbglowx/vault-kv-search
 %global goipath         github.com/xbglowx/vault-kv-search
-Version:     0.1.3
-%global tag v0.1.3
+Version:     0.2.0
+%global tag v0.2.0
 
 %gometa -L -f
 %forgemeta
