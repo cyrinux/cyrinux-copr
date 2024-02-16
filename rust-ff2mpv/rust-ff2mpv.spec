@@ -1,11 +1,11 @@
 %global forgeurl https://github.com/ryze312/ff2mpv-rust
-%global tag    1.1.2.rev01
+%global tag    1.1.3
 %forgemeta
 
 %global crate ff2mpv-rust
 
 Name:           ff2mpv
-Version:        1.1.2.rev01
+Version:        1.1.3
 Release:        %autorelease -b2
 Summary:        Native messaging host for ff2mpv written in Rust
 SourceLicense:  GPLv3
