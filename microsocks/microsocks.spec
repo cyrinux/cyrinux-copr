@@ -1,9 +1,9 @@
 %global forgeurl https://github.com/rofl0r/microsocks
-%global tag    v1.0.3
+%global tag    v1.0.4
 %forgemeta
 
 Name:           microsocks
-Version:        1.0.3
+Version:        1.0.4
 Release:        %autorelease -b2
 Summary:        Tiny, portable SOCKS5 server with very moderate resource usage
 
