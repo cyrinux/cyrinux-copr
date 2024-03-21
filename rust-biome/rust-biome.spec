@@ -1,11 +1,11 @@
 %global forgeurl https://github.com/biomejs/biome
-%global tag    v1.7.20231109
+%global tag    v1.6.1
 %forgemeta
 
 %global crate biome
 
 Name:           rust-biome
-Version:        1.7.20231109
+Version:        1.6.1
 Release:        %autorelease
 Summary:        Display file system space usage using graphs and colors
 
@@ -40,6 +40,10 @@ License:        MIT
 %build
 export RUSTUP_TOOLCHAIN=stable
 export CARGO_TARGET_DIR=target
+if [[ "$(uname -m)" == "aarch64" ]]; then
+  export JEMALLOC_SYS_WITH_LG_PAGE=16
+fi
+
 %{__cargo} build --frozen --release
 %{cargo_license_summary}
 %{cargo_license} > LICENSE.dependencies
