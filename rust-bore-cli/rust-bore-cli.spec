@@ -22,7 +22,11 @@ A modern, simple TCP tunnel in Rust that exposes local ports to a remote server,
 
 %package     -n %{crate}
 Summary:        %{summary}
+<<<<<<< HEAD
 License:        Apache-2.0
+=======
+License:        MIT
+>>>>>>> ff7299f (feat: add bore-cli)
 
 %description -n %{crate} %{_description}
 
@@ -31,7 +35,7 @@ License:        Apache-2.0
 %license LICENSE.dependencies
 %license cargo-vendor.txt
 %doc README.md
-%{_bindir}/bore-cli
+%{_bindir}/bore
 
 %prep
 %autosetup -n %{crate}-%{version} -p1 -a1
