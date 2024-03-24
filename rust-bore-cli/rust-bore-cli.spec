@@ -6,7 +6,7 @@
 
 Name:           rust-bore-cli
 Version:        0.5.O
-Release:        %autorelease
+Release:        %autorelease -b1
 Summary:        A modern, simple TCP tunnel in Rust that exposes local ports to a remote server, bypassing standard NAT connection firewalls
 License:        MIT
 URL:            https://github.com/ekzhang/bore
@@ -22,11 +22,7 @@ A modern, simple TCP tunnel in Rust that exposes local ports to a remote server,
 
 %package     -n %{crate}
 Summary:        %{summary}
-<<<<<<< HEAD
-License:        Apache-2.0
-=======
 License:        MIT
->>>>>>> ff7299f (feat: add bore-cli)
 
 %description -n %{crate} %{_description}
 
