@@ -17,4 +17,4 @@ SPEC_DIR=$(dirname $(realpath "$RPM_SPEC_FILE"))
 CRATE=$(awk '/^%global crate/ {print $NF}' "$RPM_SPEC_FILE")
 VERSION=$(rpmspec -q --qf "%{version}\n" "$RPM_SPEC_FILE" | head -1 | sed 's/\^.*//')
 
-rust2rpm -V -s $CRATE $VERSION > /dev/null
+rust2rpm --ignore-missing-license-files -V -s $CRATE $VERSION > /dev/null
