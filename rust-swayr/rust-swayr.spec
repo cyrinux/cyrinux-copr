@@ -11,9 +11,9 @@ Release:        %autorelease
 Summary:        A LRU window-switcher (and more) for the sway window manager
 
 License:        GPLv3
-URL:            https://github.com/anthraxx/dfrs
+URL:            https://sr.ht/~tsdh/swayr/
 Source:         %{crates_source}
-Source:         dfrs-%{tag}-vendor.tar.xz
+Source:         swayr-%{tag}-vendor.tar.xz
 
 BuildRequires:  cargo-rpm-macros >= 25
 
@@ -35,6 +35,8 @@ License:        GPLv3
 %doc README.md
 %{_bindir}/swayr
 %{_bindir}/swayrd
+%{_userunitdir}/%{_name}.service
+
 
 %prep
 %autosetup -n %{crate}-%{version} -p1 -a1
@@ -48,6 +50,22 @@ License:        GPLv3
 
 %install
 %cargo_install
+%{__install} -dm 0755 %{buildroot}%{_userunitdir}
+cat > %{buildroot}%{_userunitdir}/%{_name}.service << EOF
+[Unit]
+Description=swayr daemon
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+ExecStart=%{_bindir}/%{_name}d
+Restart=always
+RestartSec=10s
+StandardOutput=null
+
+[Install]
+WantedBy=graphical-session.target
+EOF
 
 %if %{with check}
 %check
