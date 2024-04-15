@@ -1,6 +1,6 @@
-%global commit0 ab03f073add417f9a5e63fe7d6545e4c85a0daed
+%global commit0 99baca7747e6d48801f91b58bc392b7df46dc56b
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
-%global bumpver 1
+%global bumpver 2
 %global forgeurl https://git.sr.ht/~whynothugo/shotman
 %global commit  %{commit0}
 %forgemeta
