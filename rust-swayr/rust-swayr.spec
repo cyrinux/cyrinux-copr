@@ -7,7 +7,7 @@
 Name:           rust-swayr
 Version:        0.27.3
 %global tag     0.27.3
-Release:        %autorelease -b1
+Release:        %autorelease -b2
 Summary:        A LRU window-switcher (and more) for the sway window manager
 
 License:        GPLv3
