@@ -5,6 +5,8 @@
 %global commit  %{commit0}
 %forgemeta
 
+%global debug_package %{nil}
+
 %global _name shotman
 
 Name:           %{_name}-git
