@@ -18,6 +18,7 @@ Source:         %{forgesource}
 BuildRequires:  systemd-rpm-macros
 BuildRequires:  git-core
 BuildRequires:  gcc
+BuildRequires:  rust-xkbcommon0.4+wayland-devel
 Provides:       %{_name}
 Provides:       rust-%{_name}
 
