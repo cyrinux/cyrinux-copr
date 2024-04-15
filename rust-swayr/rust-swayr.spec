@@ -7,13 +7,13 @@
 Name:           rust-swayr
 Version:        0.27.3
 %global tag     0.27.3
-Release:        %autorelease
+Release:        %autorelease -b1
 Summary:        A LRU window-switcher (and more) for the sway window manager
 
 License:        GPLv3
 URL:            https://sr.ht/~tsdh/swayr/
 Source:         %{crates_source}
-Source:         swayr-%{tag}-vendor.tar.xz
+Source:         %{crate}-%{tag}-vendor.tar.xz
 
 BuildRequires:  cargo-rpm-macros >= 25
 
