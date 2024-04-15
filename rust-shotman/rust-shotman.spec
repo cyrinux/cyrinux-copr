@@ -41,7 +41,7 @@ $HOME/.cargo/bin/cargo build --release --package %{_name}
 %{__install} -Dm755 target/release/%{_name} -t %{buildroot}%{_bindir}/%{_name}
 
 %files
-%license LICENCE
+%license LICENCE.md
 %doc README.md
 
 %changelog
