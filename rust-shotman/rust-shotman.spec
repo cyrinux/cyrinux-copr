@@ -43,6 +43,7 @@ $HOME/.cargo/bin/cargo build --release --package %{_name}
 %files
 %license LICENCE.md
 %doc README.md
+%{_bindir}/%{_name}
 
 %changelog
 %autochangelog
