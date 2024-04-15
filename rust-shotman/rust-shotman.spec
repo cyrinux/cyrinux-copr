@@ -12,7 +12,7 @@
 Name:           %{_name}-git
 URL:            %{forgeurl}
 Version:        0.4.5%{?bumpver:^%{bumpver}.git%{shortcommit0}}
-Release:        %autorelease -b1
+Release:        %autorelease -b2
 Summary:        The uncompromising screenshot GUI for Wayland compositors
 SourceLicense:  ISC
 License:        ISC
