@@ -2,10 +2,10 @@
 %global __cargo_is_lib() 0
 
 %global crate bore-cli
-%global tag     v0.5.0
+%global tag     v0.5.1
 
 Name:           rust-bore-cli
-Version:        0.5.0
+Version:        0.5.1
 Release:        %autorelease -b1
 Summary:        A modern, simple TCP tunnel in Rust that exposes local ports to a remote server, bypassing standard NAT connection firewalls
 License:        MIT
