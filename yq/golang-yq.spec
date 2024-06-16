@@ -2,8 +2,8 @@
 
 %global forgeurl        https://github.com/mikefarah/yq
 %global goipath         github.com/mikefarah/yq
-Version:     4.43.1
-%global tag v4.43.1
+Version:     4.44.2
+%global tag v4.44.2
 
 %gometa -L -f
 %forgemeta
