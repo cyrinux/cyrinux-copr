@@ -1,10 +1,10 @@
 %global crate push2talk
 %global forgeurl https://github.com/cyrinux/push2talk
-%global tag    1.3.0
+%global tag    1.3.1
 %forgemeta
 
 Name:           rust-push2talk
-Version:        1.3.0
+Version:        1.3.1
 Release:        %autorelease -b1
 Summary:        Push to talk application is working with both wayland/x11 and pulseaudio
 
