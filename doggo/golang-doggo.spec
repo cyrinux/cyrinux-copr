@@ -2,8 +2,8 @@
 
 %global forgeurl https://github.com/mr-karan/doggo
 %global goipath         github.com/mr-karan/doggo
-Version:                0.5.7
-%global tag v0.5.7
+Version:                0.6.1-dev
+%global tag v0.6.1-dev
 
 %gometa -f -L
 %forgemeta
