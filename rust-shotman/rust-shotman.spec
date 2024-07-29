@@ -1,6 +1,6 @@
-%global commit0 fc15a70794a702106ec5ba13f48a301a1d62161f
+%global commit0 8a79f1501fa0cbc114a1a0e19d4118b20686d0a4
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
-%global bumpver 5
+%global bumpver 1
 %global forgeurl https://git.sr.ht/~whynothugo/shotman
 %global commit  %{commit0}
 %forgemeta
@@ -11,7 +11,7 @@
 
 Name:           %{_name}-git
 URL:            %{forgeurl}
-Version:        0.4.6%{?bumpver:^%{bumpver}.git%{shortcommit0}}
+Version:        0.4.7%{?bumpver:^%{bumpver}.git%{shortcommit0}}
 Release:        %autorelease -b2
 Summary:        The uncompromising screenshot GUI for Wayland compositors
 SourceLicense:  ISC
