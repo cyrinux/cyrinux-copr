@@ -1,13 +1,13 @@
 %bcond_without check
 
 %global forgeurl https://github.com/fujiapple852/trippy
-%global tag    0.10.0
+%global tag    0.11.0-rc.2
 %forgemeta
 
 %global _binname trip
 
 Name:           trippy
-Version:        0.10.0
+Version:        0.11.0-rc.2
 Release:        %autorelease -b1
 Summary:        A network diagnostic tool
 License:        Apache License 2.0
