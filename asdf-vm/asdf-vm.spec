@@ -1,9 +1,9 @@
 %global forgeurl https://github.com/asdf-vm/asdf
-%global tag    v0.14.0
+%global tag    v0.14.1
 %forgemeta
 
 Name:           asdf-vm
-Version:        0.14.0
+Version:        0.14.1
 Release:        %autorelease -b4
 Summary: Extendable version manager with support for Ruby, Node.js, Elixir, Erlang & more
 License:        MIT
