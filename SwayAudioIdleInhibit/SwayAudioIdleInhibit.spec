@@ -7,7 +7,7 @@
 %forgemeta
 
 Name:           SwayAudioIdleInhibit
-Version:        0.1.1
+Version:        0.1.2
 Release:        %autorelease -b7
 Summary:        Prevents swayidle from sleeping while any application is outputting or receiving audio
 
