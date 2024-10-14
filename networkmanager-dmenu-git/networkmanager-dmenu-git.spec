@@ -1,6 +1,6 @@
-%global commit0 6ad647e7e3c7821bbad1f3ec2626183de35b6c6e
+%global commit0 976f61dfb9fcd766d65f9140c7e2a2fe3fd536f6
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
-%global bumpver 1
+%global bumpver 2
 
 %global _name   networkmanager-dmenu
 Name:           %{_name}-git
