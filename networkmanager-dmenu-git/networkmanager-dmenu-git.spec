@@ -1,10 +1,10 @@
-%global commit0 976f61dfb9fcd766d65f9140c7e2a2fe3fd536f6
+%global commit0 33deba5ac3ab729075ea9a689382d94569b21e6b
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
-%global bumpver 2
+%global bumpver 1
 
 %global _name   networkmanager-dmenu
 Name:           %{_name}-git
-Version:        2.4.0%{?bumpver:^%{bumpver}.git%{shortcommit0}}
+Version:        2.5.0%{?bumpver:^%{bumpver}.git%{shortcommit0}}
 Release:        1%{?dist}
 Summary:        Control NetworkManager via dmenu
 License:        MIT
