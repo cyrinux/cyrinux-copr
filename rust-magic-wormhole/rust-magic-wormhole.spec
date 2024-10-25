@@ -2,8 +2,8 @@
 %global _reponame magic-wormhole.rs
 %global debug_package %{nil}
 
-Version:    0.7.2
-%global tag 0.7.2
+Version:    0.7.3
+%global tag 0.7.3
 %forgemeta
 
 Name:   wormhole-rs
