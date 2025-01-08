@@ -1,8 +1,8 @@
 %bcond_without check
 
 %global goipath         github.com/maximbaz/yubikey-touch-detector
-Version:                1.12.2
-%global tag             1.12.2
+Version:                1.12.3
+%global tag             1.12.3
 
 %gometa -L -f
 
