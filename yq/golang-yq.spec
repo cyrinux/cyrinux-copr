@@ -2,8 +2,8 @@
 
 %global forgeurl        https://github.com/mikefarah/yq
 %global goipath         github.com/mikefarah/yq
-Version:     4.44.6
-%global tag v4.44.6
+Version:     4.45.1 - Create parent directories when --split-exp is used!
+%global tag v4.45.1 - Create parent directories when --split-exp is used!
 
 %gometa -L -f
 %forgemeta
