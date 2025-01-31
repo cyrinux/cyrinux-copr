@@ -1,4 +1,4 @@
-%global commit0 b813005640ded9bbc5c204499b141c3f01d80c4a
+%global commit0 c052f7c46dbce5c89b9985ff9218a6ef759cd3ce
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 %global bumpver 1
 %global forgeurl https://git.sr.ht/~whynothugo/shotman
