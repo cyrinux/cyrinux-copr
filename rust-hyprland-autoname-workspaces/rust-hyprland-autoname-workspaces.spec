@@ -1,9 +1,9 @@
 %global forgeurl https://github.com/hyprland-community/hyprland-autoname-workspaces
-%global tag     1.1.15
+%global tag     1.1.16
 %forgemeta
 
 Name:           hyprland-autoname-workspaces
-Version:        1.1.15
+Version:        1.1.16
 Release:        %autorelease -b1
 Summary:        Hyprland autoname workspaces
 
