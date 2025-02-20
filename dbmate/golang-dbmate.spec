@@ -1,7 +1,7 @@
 %global forgeurl https://github.com/amacneil/dbmate
 %global goipath         github.com/amacneil/dbmate/v2
-Version:                2.25.0
-%global tag            v2.25.0
+Version:                2.26.0
+%global tag            v2.26.0
 
 %gometa -f -L
 %forgemeta
