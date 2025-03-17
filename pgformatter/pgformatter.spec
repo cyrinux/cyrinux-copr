@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 %global forgeurl        https://github.com/darold/pgFormatter
 %global name pgFormatter
-%global tag   v5.5
+%global tag   v5.6
 %forgemeta
 
 %global common_description %{expand:
@@ -13,7 +13,7 @@ A PostgreSQL SQL syntax beautifier that can work as a console program or as a CG
 Name:           %{name}
 Release:        %autorelease -b5
 Summary:        A PostgreSQL SQL syntax beautifier that can work as a console program or as a CGI.
-Version:        5.5
+Version:        5.6
 BuildArch:      noarch
 BuildRequires:  coreutils
 BuildRequires:  make
