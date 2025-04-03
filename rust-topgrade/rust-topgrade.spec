@@ -1,11 +1,11 @@
 %global debug_package %{nil}
 
 %global forgeurl https://github.com/topgrade-rs/topgrade
-%global tag    v16.0.2
+%global tag    v16.0.3
 %forgemeta
 
 Name:           topgrade
-Version:        16.0.2
+Version:        16.0.3
 Release:        %autorelease -b7
 Summary:        Topgrade - Invoke the upgrade procedure of multiple package managers
 Group:          System Environment/Shells
